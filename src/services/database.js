@@ -1,6 +1,4 @@
 // Put your database code here
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
 
 // create database
 const database = require('better-sqlite3')
@@ -32,4 +30,4 @@ if (row === undefined) {
     console.log('Log database exists.')
 }
 
-export {logdb}
+module.exports = logdb;

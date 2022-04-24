@@ -102,4 +102,7 @@
    * 
    * Export all of your named functions
   */
-  export {coinFlip, coinFlips, countFlips, flipACoin};
+  exports.coinFlip = coinFlip;
+  exports.coinFlips = coinFlips;
+  exports.countFlips = countFlips;
+  exports.flipACoin = flipACoin;

@@ -1,9 +1,7 @@
 // Place your server entry point code here
-import { createRequire } from 'module';
-import { coinFlip, coinFlips, countFlips, flipACoin } from './src/utils/coin.mjs';
-import { logdb } from './src/services/database.js';
 
-const require = createRequire(import.meta.url);
+const coin = require('./src/utils/coin.js');
+const logdb = require('./src/services/database.js')
 const express = require('express');
 const fs = require('fs');
 const morgan = require('morgan');
@@ -94,31 +92,31 @@ if (!log) {
 
 // endpoint /app/flip/
 app.get('/app/flip/', (req, res) => {
-    const flip = {"flip": coinFlip()};
+    const flip = {"flip": coin.coinFlip()};
     res.json(flip);
 });
 
 // endpoint /app/flips/:number
 app.get('/app/flips/:number', (req, res) => {
-    let flips = coinFlips(req.params.number);
-    let count = countFlips(flips);
+    let flips = coin.coinFlips(req.params.number);
+    let count = coin.countFlips(flips);
     res.json({"raw": flips, "summary": count});
 });
 
 app.post('/app/flip/coins/', (req, res, next) => {
-    const flips = coinFlips(req.body.number)
-    const count = countFlips(flips)
+    const flips = coin.coinFlips(req.body.number)
+    const count = coin.countFlips(flips)
     res.status(200).json({"raw":flips,"summary":count})
 })
 
 // endpoint /app/flip/call/:guess(heads|tails)/
 app.get('/app/flip/call/:guess(heads|tails)/', (req, res) => {
-    const game = flipACoin(req.params.guess)
+    const game = coin.flipACoin(req.params.guess)
     res.status(200).json(game)
 })
 
 app.post('/app/flip/call/', (req, res, next) => {
-    const game = flipACoin(req.body.guess)
+    const game = coin.flipACoin(req.body.guess)
     res.status(200).json(game)
 })
 
