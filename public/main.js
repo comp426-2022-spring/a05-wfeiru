@@ -29,16 +29,22 @@ document.getElementById("guessnav").onclick = function(){
 
 // Flip one coin and show coin image to match result when button clicked
 function flipCoin() {
-    fetch('http://localhost:5555/app/flip/', {mode: 'cors'})
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(result) {
-            console.log(result);
-            document.getElementById("result").innerHTML = result.flip;
-            document.getElementById("quarter").setAttribute("src", "./assets/img/"+result.flip+".jpg");
-            coin.disabled = true
-        })
+    fetch('http://localhost:5555/app/flip/')
+    .then((response) => {
+        return response.json();
+    })
+    .then((result) => {
+        console.log(result);
+        document.getElementById("result").innerHTML = result.flip;
+        if(result.flip === "heads"){
+            document.getElementById("heads").style.display = 'block';
+            document.getElementById("tails").style.display = 'none';
+        } else if(result.flip === "tails"){
+            document.getElementById("heads").style.display = 'none';
+            document.getElementById("tails").style.display = 'block';
+        }
+        document.getElementById("coin").style.display = 'none';
+    })
 }
 // Flip multiple coins and show coin images in table as well as summary results
 // Enter number and press button to activate coin flip series
