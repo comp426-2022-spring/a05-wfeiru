@@ -33,7 +33,7 @@ if (args.help || args.h) {
 
 // start an app server
 const app = express();
-const port = args.port || process.env.PORT || 5555;
+const port = args.port || process.env.PORT || 5000;
 const debug = args.debug || false
 const log = args.log || true
 

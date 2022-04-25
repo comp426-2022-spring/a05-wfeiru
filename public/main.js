@@ -29,7 +29,7 @@ document.getElementById("guessnav").onclick = function(){
 
 // Flip one coin and show coin image to match result when button clicked
 function flipCoin() {
-    fetch('http://localhost:5555/app/flip/')
+    fetch('http://localhost:5000/app/flip/')
         .then((response) => {
             return response.json();
         })
@@ -51,7 +51,7 @@ function flipCoin() {
 // Enter number and press button to activate coin flip series
 function flipManyCoins() {
     var num = document.getElementById("number").value;
-    fetch('http://localhost:5555/app/flip/coins', {
+    fetch('http://localhost:5000/app/flip/coins', {
         body: JSON.stringify({"number": num}),
         headers: {"Content-Type": "application/json",},
         method: "post"
@@ -89,7 +89,7 @@ function flipManyCoins() {
 
 // Guess a flip by clicking either heads or tails button
 function guessHeads() {
-    fetch('http://localhost:5555/app/flip/call/heads')
+    fetch('http://localhost:5000/app/flip/call/heads')
         .then((response) => {
             return response.json();
         })
@@ -109,7 +109,7 @@ function guessHeads() {
 }
 
 function guessTails() {
-    fetch('http://localhost:5555/app/flip/call/tails')
+    fetch('http://localhost:5000/app/flip/call/tails')
         .then((response) => {
             return response.json();
         })
