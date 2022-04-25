@@ -1,5 +1,4 @@
 // Place your server entry point code here
-
 const coin = require('./src/utils/coin.js');
 const logdb = require('./src/services/database.js')
 const express = require('express');
@@ -85,7 +84,7 @@ if (debug) {
 if (!log) {
     // use morgan for logging to files
     // create a write stream to append (flags: 'a') to a file
-    const accessLog = fs.createWriteStream('access.log', { flags: 'a' })
+    const accessLog = fs.createWriteStream('./data/log/access.log', { flags: 'a' })
     // set up the access logging middleware
     app.use(morgan('combined', { stream: accessLog }))
 }

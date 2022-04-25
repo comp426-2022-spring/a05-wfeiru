@@ -1,3 +1,5 @@
+// This directory contains general utilities that you can use as helper functions throughout other scripts
+
 /** Coin flip functions 
  * This module will emulate a coin flip given various conditions as parameters as defined below
  */
