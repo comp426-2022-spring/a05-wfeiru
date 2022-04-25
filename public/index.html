@@ -54,14 +54,16 @@
 				<input type="number" name="number" id="number">
 				<input type="submit" value="flip 'em!" onclick="flipManyCoins()">
 			</form>
-			<p><b>results:</b></p>
+			<p><b>results summary:</b></p>
         <p>heads: <span id="results_heads"></span></p>
 				<p>tails: <span id="results_tails"></span></p>
         <p id="chart"></p>
     </div>
 
     <div id="guess" class="hidden">
-      
+      <h1>guess a side</h1>
+      <button onclick="guessHeads()"> heads </button>
+      <button onclick="guessTails()"> tails </button>
     </div>
 
 	<script src="main.js"></script>

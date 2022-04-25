@@ -46,9 +46,10 @@ function flipCoin() {
             document.getElementById("coin").style.display = 'none';
         })
 }
+
 // Flip multiple coins and show coin images in table as well as summary results
 // Enter number and press button to activate coin flip series
-async function flipManyCoins() {
+function flipManyCoins() {
     var num = document.getElementById("number").value;
     fetch('http://localhost:5555/app/flip/coins', {
         body: JSON.stringify({"number": num}),
@@ -87,3 +88,22 @@ async function flipManyCoins() {
 }
 
 // Guess a flip by clicking either heads or tails button
+function guessHeads() {
+    fetch('http://localhost:5555/app/flip/call/heads')
+        .then((response) => {
+            return response.json();
+        })
+        .then((result) => {
+            console.log(result);
+        })
+}
+
+function guessTails() {
+    fetch('http://localhost:5555/app/flip/call/tails')
+        .then((response) => {
+            return response.json();
+        })
+        .then((result) => {
+            console.log(result);
+        })
+}
