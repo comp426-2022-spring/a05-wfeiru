@@ -95,6 +95,16 @@ function guessHeads() {
         })
         .then((result) => {
             console.log(result);
+            console.log(result);
+            document.getElementById("call").innerHTML = "you called " + result.call;
+            document.getElementById("call_img").setAttribute("src", "/assets/img/"+result.call+".png");
+            document.getElementById("flip").innerHTML = "the result was " + result.flip;
+            document.getElementById("flip_img").setAttribute("src", "/assets/img/"+result.flip+".png");
+            if(result.result === 'win'){
+                document.getElementById("win").innerHTML = 'congrats, you won!'
+            } else {
+                document.getElementById("win").innerHTML = 'better luck next time'
+            }
         })
 }
 
@@ -105,5 +115,15 @@ function guessTails() {
         })
         .then((result) => {
             console.log(result);
+            console.log(result);
+            document.getElementById("call").innerHTML = "you called " + result.call;
+            document.getElementById("call_img").setAttribute("src", "/assets/img/"+result.call+".png");
+            document.getElementById("flip").innerHTML = "the result was " + result.flip;
+            document.getElementById("flip_img").setAttribute("src", "/assets/img/"+result.flip+".png");
+            if(result.result === 'win'){
+                document.getElementById("win").innerHTML = 'congrats, you won!'
+            } else {
+                document.getElementById("win").innerHTML = 'better luck next time'
+            }
         })
 }
