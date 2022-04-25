@@ -40,23 +40,24 @@
       <h1>flip a single coin</h1>
       <button onclick="flipCoin()"> flip a single coin </button>
       <p><b>result:</b> <span id="result"></span></p>
-      <img src="./assets/img/coin.png" id="coin" style="display: block;">
-      <img src="./assets/img/heads.png" id="heads" style="display: none;">
-      <img src="./assets/img/tails.png" id="tails" style="display: none;">
+      <img src="./assets/img/coin.png" id="coin" style="display: block;" class="bigcoin">
+      <img src="./assets/img/heads.png" id="heads" style="display: none;" class="bigcoin">
+      <img src="./assets/img/tails.png" id="tails" style="display: none;" class="bigcoin">
     </div>
 
     <div id="multi" class="hidden">
       <h1>flip many coins</h1>
-			<form id="coins">
+			<form action="javascript:void(0);" method="POST">
 				<label for="number">
-					<strong>How many coins?</strong>
+					<p>how many coins?</p>
 				</label>
 				<input type="number" name="number" id="number">
-				<input type="submit" value="Flip 'em!">
+				<input type="submit" value="flip 'em!" onclick="flipManyCoins()">
 			</form>
-			<h2>Results</h2>
-				<p id="heads"></p>
-				<p id="tails"></p>
+			<p><b>results:</b></p>
+        <p>heads: <span id="results_heads"></span></p>
+				<p>tails: <span id="results_tails"></span></p>
+        <p id="chart"></p>
     </div>
 
     <div id="guess" class="hidden">
