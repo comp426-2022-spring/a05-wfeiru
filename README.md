@@ -1,19 +1,3 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=7647048&assignment_repo_type=AssignmentRepo)
-# a05 Human Interface
-
-In this assignment, you will build an HTML human interface for your API. You will also document your API endpoints and consider package structure.
-
-## DO NOT CLONE THIS REPOSITORY DIRECTLY
-
-Use the GitHub classroom link instead: https://classroom.github.com/a/PUVGxeMe
-
-If you clone this repo directly, it will not be added to the organization as an individual repo associated with your account and you will not be able to push to it.
-
-## Instructions
-
-Full instructions for this assignment are available at: https://comp426.johndmart.in/a/05/
-
-<!-- DELETE EVERYTHING ABOVE THIS LINE -->
 
 # Coinserver Description
 
@@ -84,19 +68,26 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flip/
 ```
 
 #### Response body
 
 ```
-
+{"flip":"heads"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-VYm8Bk1/RW8RGhDXdTwBYk6lbGE"
+Date: Mon, 25 Apr 2022 02:48:38 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/flips/:number/ (GET)
@@ -104,39 +95,53 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flips/3
 ```
 
 #### Response body
 
 ```
-
+{"raw":["tails","tails","heads"],"summary":{"tails":2,"heads":1}}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 65
+ETag: W/"41-ncb2dhjy17EQk3n/k2EZdZL7FNE"
+Date: Mon, 25 Apr 2022 02:50:29 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
-### /app/flip/coin/ (GET)
+### /app/flip/coins/ (GET)
 
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flip/coins
 ```
 
 #### Response body
 
 ```
-
+404 NOT FOUND
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 404 Not Found
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 13
+ETag: W/"d-9cDc1x9S0CgmdX/8mukTB8yQ/hY"
+Date: Mon, 25 Apr 2022 03:04:40 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/flip/call/:guess/ (GET)
@@ -144,19 +149,26 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/flip/call/heads
 ```
 
 #### Response body
 
 ```
-
+{"call":"heads","flip":"heads","result":"win"}
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 46
+ETag: W/"2e-U/q8iZ4JKqczXPIvtwiVRpEFlRc"
+Date: Mon, 25 Apr 2022 03:01:28 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/flip/call/ (POST)
@@ -218,39 +230,63 @@ Keep-Alive: timeout=5
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/log/access
 ```
 
 #### Response body
 
 ```
-
+[{"id":1,"remoteaddr":"::1","remoteuser":null,"time":"1650837352299.0","method":"POST","url":"/?number=5app/flip/coins/","protocol":"http","httpversion":1.1,"status":200,"referrer":"http://localhost:5555/?number=5","useragent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"},{"id":2,"remoteaddr":"::1","remoteuser":null,"time":"1650837929440.0","method":"GET","url":"/app/flip/","protocol":"http","httpversion":1.1,"status":200,"referrer":"http://localhost:5555/","useragent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"},...]
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 79175
+ETag: W/"13547-11/8rHItvUuXspeFF78vFxXotrE"
+Date: Mon, 25 Apr 2022 03:18:01 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
-### /app/log/access/ (GET)
+### /app/error/ (GET)
 
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/error/
 ```
 
 #### Response body
 
 ```
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Error: Error test successful.<br> &nbsp; &nbsp;at /Users/ruthwu/comp426/a05-wfeiru/index.js:79:15<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/Users/ruthwu/comp426/a05-wfeiru/node_modules/express/lib/router/layer.js:95:5)<br> &nbsp; &nbsp;at next (/Users/ruthwu/comp426/a05-wfeiru/node_modules/express/lib/router/route.js:137:13)<br> &nbsp; &nbsp;at Route.dispatch (/Users/ruthwu/comp426/a05-wfeiru/node_modules/express/lib/router/route.js:112:3)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/Users/ruthwu/comp426/a05-wfeiru/node_modules/express/lib/router/layer.js:95:5)<br> &nbsp; &nbsp;at /Users/ruthwu/comp426/a05-wfeiru/node_modules/express/lib/router/index.js:281:22<br> &nbsp; &nbsp;at Function.process_params (/Users/ruthwu/comp426/a05-wfeiru/node_modules/express/lib/router/index.js:341:12)<br> &nbsp; &nbsp;at next (/Users/ruthwu/comp426/a05-wfeiru/node_modules/express/lib/router/index.js:275:10)<br> &nbsp; &nbsp;at /Users/ruthwu/comp426/a05-wfeiru/index.js:66:5<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/Users/ruthwu/comp426/a05-wfeiru/node_modules/express/lib/router/layer.js:95:5)</pre>
+</body>
+</html>
 ```
 
 #### Response headers
 
 ```
-
+HTTP/1.1 500 Internal Server Error
+X-Powered-By: Express
+Content-Security-Policy: default-src 'none'
+X-Content-Type-Options: nosniff
+Content-Type: text/html; charset=utf-8
+Content-Length: 1254
+Date: Mon, 25 Apr 2022 03:22:17 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
 ```
 
 ### /app/log/error/ (GET)
@@ -260,7 +296,7 @@ _Not yet implemented_
 #### Request cURL
 
 ```
-
+curl http://localhost:5000/app/log/error/
 ```
 
 #### Response body

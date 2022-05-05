@@ -27,23 +27,56 @@
   </head>
   <body>
     <nav>
-      <button id="homenav">Home</button>
-      <button id="singlenav">Flip one coin</button>
-      <button id="multinav">Flip multiple coins</button>
-      <button id="guessnav">Guess the result</button>
+      <button id="homenav">home</button>
+      <button id="singlenav">flip one coin</button>
+      <button id="multinav">flip multiple coins</button>
+      <button id="guessnav">guess the result</button>
     </nav>
     <div id="home">
-      
-    </div>    
+      <h1>welcome to coinserver! here are some coin games</h1>
+      <h2>flip one coin</h2>
+      <p>flip a coin for heads or tails</p>
+      <h2>flip many coins</h2>
+      <p>enter a number to flip that many coins and see the results</p>
+      <h2>guess a side</h2>
+      <p>call heads or tails and see if you win</p>
+    </div>   
+
     <div id="single" class="hidden">
-      
+      <h1>flip one coin</h1>
+      <button onclick="flipCoin()"> flip a single coin </button>
+      <p><b>result:</b> <span id="result"></span></p>
+      <img src="./assets/img/coin.png" id="coin" style="display: block;" class="bigcoin">
+      <img src="./assets/img/heads.png" id="heads" style="display: none;" class="bigcoin">
+      <img src="./assets/img/tails.png" id="tails" style="display: none;" class="bigcoin">
     </div>
+
     <div id="multi" class="hidden">
-      
+      <h1>flip many coins</h1>
+			<form action="javascript:void(0);" method="POST">
+				<label for="number">
+					<p>how many coins?</p>
+				</label>
+				<input type="number" name="number" id="number">
+				<input type="submit" value="flip 'em!" onclick="flipManyCoins()">
+			</form>
+			<p><b>results summary:</b></p>
+        <p>heads: <span id="results_heads"></span></p>
+				<p>tails: <span id="results_tails"></span></p>
+        <p id="chart"></p>
     </div>
+
     <div id="guess" class="hidden">
-      
+      <h1>guess a side</h1>
+      <button onclick="guessHeads()"> heads </button>
+      <button onclick="guessTails()"> tails </button>
+      <p id="call"></p>
+      <img src="" id="call_img" class="bigcoin">
+      <p id="flip"></p>
+      <img src="" id="flip_img" class="bigcoin">
+      <p id="win"></p>
     </div>
+
 	<script src="main.js"></script>
   </body>
 </html>
